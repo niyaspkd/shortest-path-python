@@ -7,12 +7,13 @@ my_dict = {}
 def create_graph():
     global places_list
     global places_set
+    global route_map
 
 
     f = open("input.txt", 'r')
-    data = f.read()
+    route_map= f.read()
     
-    remove_symbols = re.sub(r'to|= | \n', '', data)
+    remove_symbols = re.sub(r'to|= | \n', '', route_map)
     cleaned_str = remove_symbols.replace('\n', " ")
     
     places_string = ''.join([i for i in cleaned_str if not i.isdigit()])
@@ -100,7 +101,7 @@ def dijkstra(graph, start, goal):
         print('And the path is ' + str(path))
 
 create_graph()
-print(places_set)
+print (route_map)
 starting_point = input("Start Journey from any of above location : ")
 ending_station = input("Ending location for Journey : ")
 
